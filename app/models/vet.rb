@@ -1,2 +1,0 @@
-class Vet < ApplicationRecord
-end
