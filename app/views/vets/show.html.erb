@@ -1,0 +1,29 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h1>Dr. <%= @vet.first_name %> <%= @vet.last_name %></h1>
+    <p><strong>Specialization:</strong> <%= @vet.specialization %></p>
+    <p><strong>Email:</strong> <%= @vet.email %></p>
+    <p><strong>Phone:</strong> <%= @vet.phone %></p>
+
+    <h3 class="mt-4">Assigned Appointments:</h3>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Patient</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @vet.appointments.each do |app| %>
+          <tr>
+            <td><%= app.date.strftime("%d/%m/%Y") %></td>
+            <td><%= app.pet.name %></td>
+            <td><%= link_to "Details", appointment_path(app), class: "btn btn-sm btn-link" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to "Back to Vets", vets_path, class: "btn btn-secondary mt-3" %>
+  </div>
+</div>

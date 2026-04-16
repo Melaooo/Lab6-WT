@@ -78,42 +78,46 @@ pet5 = owner3.pets.create(
 
 # APPOINTMENTS
 
-# status:
 # 0 = scheduled
 # 1 = in progress
 # 2 = completed
 # 3 = cancelled
 
-appt1 = Appointment.create(
+appt1 = Appointment.create!(
   date: Time.now + 1.day,
+  reason: "Annual check-up",
   status: 0,
   pet: pet1,
   vet: vet1
 )
 
-appt2 = Appointment.create(
+appt2 = Appointment.create!(
   date: Time.now,
+  reason: "Vaccination",
   status: 1,
   pet: pet2,
   vet: vet1
 )
 
-appt3 = Appointment.create(
+appt3 = Appointment.create!(
   date: Time.now - 1.day,
+  reason: "Surgery follow-up",
   status: 2,
   pet: pet3,
   vet: vet2
 )
 
-appt4 = Appointment.create(
+appt4 = Appointment.create!(
   date: Time.now - 2.days,
+  reason: "Skin treatment",
   status: 3,
   pet: pet4,
   vet: vet2
 )
 
-appt5 = Appointment.create(
+appt5 = Appointment.create!(
   date: Time.now,
+  reason: "General check-up",
   status: 2,
   pet: pet5,
   vet: vet1

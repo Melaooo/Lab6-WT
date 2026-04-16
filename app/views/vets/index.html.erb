@@ -1,0 +1,15 @@
+<h1>Vets List</h1>
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Specialization</th>
+    <th>Actions</th>
+  </tr>
+  <% @vets.each do |vet| %>
+    <tr>
+      <td><%= "#{vet.first_name} #{vet.last_name}" %></td>
+      <td><%= vet.specialization %></td>
+      <td><%= link_to "View", vet_path(vet) %></td>
+    </tr>
+  <% end %>
+</table>

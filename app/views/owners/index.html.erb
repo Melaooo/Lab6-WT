@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Owners List</h1>
+</div>
+
+<div class="card shadow-sm">
+  <div class="card-body p-0">
+    <table class="table table-hover mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @owners.each do |owner| %>
+          <tr>
+            <td class="align-middle">
+              <%= "#{owner.first_name} #{owner.last_name}" %>
+            </td>
+            <td class="align-middle"><%= owner.email %></td>
+            <td class="align-middle"><%= owner.phone %></td>
+            <td class="text-center">
+              <%= link_to owner_path(owner), class: "btn btn-sm btn-info text-white" do %>
+                <i class="bi bi-eye"></i> View Profile
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

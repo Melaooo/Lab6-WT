@@ -1,0 +1,17 @@
+<h1>Pets List</h1>
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Species</th>
+    <th>Owner</th>
+    <th>Actions</th>
+  </tr>
+  <% @pets.each do |pet| %>
+    <tr>
+      <td><%= pet.name %></td>
+      <td><%= pet.species %></td>
+      <td><%= pet.owner.first_name if pet.owner %></td>
+      <td><%= link_to "View", pet_path(pet) %></td>
+    </tr>
+  <% end %>
+</table>

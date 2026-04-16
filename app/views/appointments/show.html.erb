@@ -1,0 +1,13 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h1>Appointment Details</h1>
+    <p><strong>Date:</strong> <%= @appointment.date.strftime("%B %d, %Y at %H:%M") %></p>
+    <p><strong>Reason:</strong> <%= @appointment.reason %></p>
+    <p><strong>Status:</strong> <span class="badge bg-info text-dark"><%= @appointment.status.humanize %></span></p>
+    <hr>
+    <p><strong>Patient (Pet):</strong> <%= link_to @appointment.pet.name, pet_path(@appointment.pet) %></p>
+    <p><strong>Veterinarian:</strong> <%= link_to @appointment.vet.first_name, vet_path(@appointment.vet) %></p>
+
+    <%= link_to "Back to Appointments", appointments_path, class: "btn btn-secondary mt-3" %>
+  </div>
+</div>

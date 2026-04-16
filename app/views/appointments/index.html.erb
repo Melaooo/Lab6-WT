@@ -1,0 +1,17 @@
+<h1>Programmed Appointments</h1>
+<table class="table table-striped">
+  <tr>
+    <th>Date</th>
+    <th>Reason</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.date.strftime("%B %d, %Y at %H:%M") %></td>
+      <td><%= appointment.reason %></td>
+      <td><%= appointment.status.humanize %></td>
+      <td><%= link_to "View", appointment_path(appointment) %></td>
+    </tr>
+  <% end %>
+</table>
