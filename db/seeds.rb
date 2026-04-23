@@ -1,6 +1,6 @@
 # OWNERS
 
-owner1 = Owner.create(
+owner1 = Owner.create!(
   first_name: "Tomás",
   last_name: "Melin",
   email: "tomas@miuandes.cl",
@@ -8,7 +8,7 @@ owner1 = Owner.create(
   address: "Santiago, Chile"
 )
 
-owner2 = Owner.create(
+owner2 = Owner.create!(
   first_name: "María",
   last_name: "González",
   email: "maria@miuandes.cl",
@@ -16,7 +16,7 @@ owner2 = Owner.create(
   address: "Valparaíso, Chile"
 )
 
-owner3 = Owner.create(
+owner3 = Owner.create!(
   first_name: "Juan",
   last_name: "Pérez",
   email: "juan@miuandes.cl",
@@ -27,7 +27,7 @@ owner3 = Owner.create(
 
 # VETS
 
-vet1 = Vet.create(
+vet1 = Vet.create!(
   first_name: "Juan",
   last_name: "López",
   email: "lopez@vet.com",
@@ -35,7 +35,7 @@ vet1 = Vet.create(
   specialization: "General Practice"
 )
 
-vet2 = Vet.create(
+vet2 = Vet.create!(
   first_name: "Ana",
   last_name: "Martínez",
   email: "martinez@vet.com",
@@ -46,42 +46,51 @@ vet2 = Vet.create(
 
 # PETS
 
-pet1 = owner1.pets.create(
+pet1 = owner1.pets.create!(
   name: "Firulais",
   species: "Dog",
-  breed: "Labrador"
+  breed: "Labrador",
+  date_of_birth: Date.new(2018, 5, 20),
+  weight: 30.5
 )
 
-pet2 = owner1.pets.create(
+pet2 = owner1.pets.create!(
   name: "Michi",
   species: "Cat",
-  breed: "Siamese"
+  breed: "Siamese",
+  date_of_birth: Date.new(2020, 8, 15),
+  weight: 4.2
 )
 
-pet3 = owner2.pets.create(
+pet3 = owner2.pets.create!(
   name: "Bad Bunny",
   species: "Rabbit",
-  breed: "Mini Lop"
+  breed: "Mini Lop",
+  date_of_birth: Date.new(2019, 3, 10),
+  weight: 2.5
 )
 
-pet4 = owner3.pets.create(
+pet4 = owner3.pets.create!(
   name: "Rocky",
   species: "Dog",
-  breed: "Bulldog"
+  breed: "Bulldog",
+  date_of_birth: Date.new(2017, 11, 5),
+  weight: 25.0
 )
 
-pet5 = owner3.pets.create(
+pet5 = owner3.pets.create!(
   name: "Luna",
   species: "Cat",
-  breed: "Persian"
+  breed: "Persian",
+  date_of_birth: Date.new(2021, 1, 30),
+  weight: 3.8
 )
 
 # APPOINTMENTS
-
-# 0 = scheduled
-# 1 = in progress
-# 2 = completed
-# 3 = cancelled
+# Scheduled: 0
+# Completed: 1
+# Cancelled: 2
+# In_Progress: 3
 
 appt1 = Appointment.create!(
   date: Time.now + 1.day,
@@ -126,7 +135,7 @@ appt5 = Appointment.create!(
 
 # TREATMENTS
 
-Treatment.create(
+Treatment.create!(
   name: "Vaccination",
   medication: "Rabies Vaccine",
   notes: "Pet handled well",
@@ -135,7 +144,7 @@ Treatment.create(
   appointment: appt2
 )
 
-Treatment.create(
+Treatment.create!(
   name: "Deworming",
   medication: "Antiparasitic",
   notes: "No issues",
@@ -144,7 +153,7 @@ Treatment.create(
   appointment: appt2
 )
 
-Treatment.create(
+Treatment.create!(
   name: "Surgery follow-up",
   medication: "Painkillers",
   notes: "Healing correctly",
@@ -153,7 +162,7 @@ Treatment.create(
   appointment: appt3
 )
 
-Treatment.create(
+Treatment.create!(
   name: "Skin treatment",
   medication: "Dermatological cream",
   notes: "Apply twice a day",
@@ -162,7 +171,7 @@ Treatment.create(
   appointment: appt5
 )
 
-Treatment.create(
+Treatment.create!(
   name: "General check-up",
   medication: "Vitamins",
   notes: "Routine control",
