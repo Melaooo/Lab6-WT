@@ -8,7 +8,7 @@ class Vet < ApplicationRecord
 
     before_validation :lowercase_email
     def lowercase_email
-        self.email = email.lowercase.strip
+        self.email = email.strip.downcase if email.present?
     end
 
     scope :by_specialization, ->(specialization) {

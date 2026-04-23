@@ -3,7 +3,7 @@ class Pet < ApplicationRecord
     has_many :appointments
 
     validates :name, presence: true
-    validates :species, presence: true, inclusion: { in: %w[Dog Cat Rabbit Bird Reptile Other] }
+    validates :species, presence: true, inclusion: { in: %w[dog cat rabbit bird reptile other], case_sensitive: false }
     validates :date_of_birth, presence: true
     validate :date_of_birth_cannot_be_in_future
     validates :weight, numericality: { greater_than: 0 }, presence: true

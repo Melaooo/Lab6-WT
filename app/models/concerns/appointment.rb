@@ -1,5 +1,11 @@
 class Appointment < ApplicationRecord
-    enum :status, { Scheduled: 0, Completed: 1, Cancelled: 2, In_Progress: 3 }
+    enum :status, {
+        scheduled: 0,
+        in_progress: 1,
+        completed: 2,
+        cancelled: 3
+    }
+    
     belongs_to :pet
     belongs_to :vet
     has_many :treatments
