@@ -19,11 +19,25 @@
           <tr>
             <td><%= app.date.strftime("%d/%m/%Y") %></td>
             <td><%= app.pet.name %></td>
-            <td><%= link_to "Details", appointment_path(app), class: "btn btn-sm btn-link" %></td>
+            <td><%= link_to "Details", appointment_path(app), class: "btn btn-sm btn-outline-primary" %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
+
+    <div class="mt-3">
+      <%= link_to "Edit Vet",
+          edit_vet_path(@vet),
+          class: "btn btn-sm btn-warning text-white" %>
+
+      <%= button_to "Delete Vet",
+          vet_path(@vet),
+          method: :delete,
+          data: { turbo_confirm: "Are you sure?" },
+          class: "btn btn-sm btn-danger",
+          form: { class: "d-inline" } %>
+    </div>
+
     <%= link_to "Back to Vets", vets_path, class: "btn btn-secondary mt-3" %>
   </div>
 </div>

@@ -1,0 +1,4 @@
+one:
+  name: Vaccine
+  administered_at: <%= Time.now %>
+  appointment: one

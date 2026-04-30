@@ -1,0 +1,5 @@
+one:
+  first_name: John
+  last_name: Doe
+  email: john@example.com
+  phone: 123456789

@@ -15,6 +15,23 @@
         <% end %>
       <% end %>
     </div>
-    <%= link_to "Back to Pets", pets_path, class: "btn btn-secondary mt-3" %>
+
+    <div class="mt-3">
+      <%= link_to "Edit Pet",
+          edit_pet_path(@pet),
+          class: "btn btn-sm btn-warning text-white" %>
+
+      <%= button_to "Delete Pet",
+          pet_path(@pet),
+          method: :delete,
+          data: { turbo_confirm: "Are you sure?" },
+          class: "btn btn-sm btn-danger",
+          form: { class: "d-inline" } %>
+    </div>
+
+    <div>
+      <%= link_to "Back to Pets", pets_path, class: "btn btn-secondary mt-3" %>
+    </div>
+
   </div>
 </div>

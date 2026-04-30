@@ -1,17 +1,68 @@
-<h1>Pets List</h1>
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Species</th>
-    <th>Owner</th>
-    <th>Actions</th>
-  </tr>
-  <% @pets.each do |pet| %>
-    <tr>
-      <td><%= pet.name %></td>
-      <td><%= pet.species %></td>
-      <td><%= pet.owner.first_name if pet.owner %></td>
-      <td><%= link_to "View", pet_path(pet) %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Pets List</h1>
+</div>
+
+<button class="btn btn-primary mb-3" onclick="window.location.href='<%= new_pet_path %>'">
+  Add New Pet
+</button>
+
+<div class="card shadow-sm">
+  <div class="card-body p-0">
+    <table class="table table-hover mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Species</th>
+          <th>Date of Birth</th>
+          <th>Weight</th>
+          <th>Owner</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pets.each do |pet| %>
+          <tr>
+            <td class="align-middle">
+              <%= pet.name %>
+            </td>
+
+            <td class="align-middle">
+              <%= pet.species.humanize %>
+            </td>
+
+            <td class="align-middle">
+              <%= pet.date_of_birth.strftime("%B %d, %Y") %>
+            </td>
+
+            <td class="align-middle">
+              <%= "#{pet.weight} kg" %>
+            </td>
+
+            <td class="align-middle">
+              <%= "#{pet.owner.first_name} #{pet.owner.last_name}" %>
+            </td>
+
+            <td>
+              <div class="d-flex gap-2 allign-items-center justify-content-center">
+                <%= link_to "View",
+                    pet_path(pet),
+                    class: "btn btn-sm btn-info text-white" %>
+
+                <%= link_to "Edit",
+                    edit_pet_path(pet),
+                    class: "btn btn-sm btn-warning text-white" %>
+
+                <%= button_to "Delete",
+                    pet_path(pet),
+                    method: :delete,
+                    data: { turbo_confirm: "Are you sure?" },
+                    class: "btn btn-sm btn-danger",
+                    form: { class: "d-inline" } %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

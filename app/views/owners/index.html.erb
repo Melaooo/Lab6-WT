@@ -2,6 +2,8 @@
   <h1>Owners List</h1>
 </div>
 
+<button class="btn btn-primary mb-3" onclick="window.location.href='<%= new_owner_path %>'">Add New Owner</button>
+
 <div class="card shadow-sm">
   <div class="card-body p-0">
     <table class="table table-hover mb-0">
@@ -21,10 +23,20 @@
             </td>
             <td class="align-middle"><%= owner.email %></td>
             <td class="align-middle"><%= owner.phone %></td>
-            <td class="text-center">
-              <%= link_to owner_path(owner), class: "btn btn-sm btn-info text-white" do %>
-                <i class="bi bi-eye"></i> View Profile
-              <% end %>
+            <th>
+              <div class="d-flex gap-2 allign-items-center justify-content-center">
+                <%= link_to "View", owner_path(owner), class: "btn btn-sm btn-info text-white" %>
+
+                <%= link_to "Edit", edit_owner_path(owner), class: "btn btn-sm btn-warning text-white" %>
+
+                <%= button_to "Delete",
+                    owner_path(owner),
+                    method: :delete,
+                    data: { turbo_confirm: "Are you sure?" },
+                    class: "btn btn-sm btn-danger",
+                    form: { class: "d-inline" } %>
+              </div>
+            </th>
             </td>
           </tr>
         <% end %>

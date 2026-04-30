@@ -1,17 +1,68 @@
-<h1>Programmed Appointments</h1>
-<table class="table table-striped">
-  <tr>
-    <th>Date</th>
-    <th>Reason</th>
-    <th>Status</th>
-    <th>Actions</th>
-  </tr>
-  <% @appointments.each do |appointment| %>
-    <tr>
-      <td><%= appointment.date.strftime("%B %d, %Y at %H:%M") %></td>
-      <td><%= appointment.reason %></td>
-      <td><%= appointment.status.humanize %></td>
-      <td><%= link_to "View", appointment_path(appointment) %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Appointments List</h1>
+</div>
+
+<button class="btn btn-primary mb-3" onclick="window.location.href='<%= new_appointment_path %>'">
+  Add New Appointment
+</button>
+
+<div class="card shadow-sm">
+  <div class="card-body p-0">
+    <table class="table table-hover mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th>Date</th>
+          <th>Reason</th>
+          <th>Status</th>
+          <th>Pet</th>
+          <th>Vet</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @appointments.each do |appointment| %>
+          <tr>
+            <td class="align-middle">
+              <%= appointment.date.strftime("%B %d, %Y %H:%M") %>
+            </td>
+
+            <td class="align-middle">
+              <%= appointment.reason %>
+            </td>
+
+            <td class="align-middle">
+              <%= appointment.status.humanize %>
+            </td>
+
+            <td class="align-middle">
+              <%= appointment.pet.name %>
+            </td>
+
+            <td class="align-middle">
+              <%= appointment.vet.first_name %>
+            </td>
+
+            <td>
+              <div class="d-flex gap-2 allign-items-center justify-content-center">
+                <%= link_to "View",
+                    appointment_path(appointment),
+                    class: "btn btn-sm btn-info text-white" %>
+
+                <%= link_to "Edit",
+                    edit_appointment_path(appointment),
+                    class: "btn btn-sm btn-warning text-white" %>
+
+                <%= button_to "Delete",
+                    appointment_path(appointment),
+                    method: :delete,
+                    data: { turbo_confirm: "Are you sure?" },
+                    class: "btn btn-sm btn-danger",
+                    form: { class: "d-inline" } %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

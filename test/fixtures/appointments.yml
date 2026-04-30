@@ -1,0 +1,6 @@
+one:
+  date: <%= Time.now %>
+  reason: Checkup
+  status: completed
+  pet: one
+  vet: one

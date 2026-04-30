@@ -1,2 +1,3 @@
 <h1>Create Treatment</h1>
 <%= render "form", treatment: @treatment %>
+<button class="btn btn-secondary mt-3" onclick="window.location.href='<%= appointment_path(@appointment) %>'">Back to Appointment</button>

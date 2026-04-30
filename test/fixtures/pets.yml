@@ -1,0 +1,6 @@
+one:
+  name: Firulais
+  species: dog
+  date_of_birth: 2020-01-01
+  weight: 10
+  owner: one

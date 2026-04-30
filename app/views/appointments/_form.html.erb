@@ -1,5 +1,5 @@
-<%= form_with model: appointment do |f| %>
-    <%= render "shared/error_messages", object: form.object %>
+<%= form_with(model: @appointment) do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
 
     <div class="mb-3">
         <%= f.label :date, class: "form-label" %>

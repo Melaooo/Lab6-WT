@@ -14,7 +14,20 @@
         </li>
       <% end %>
     </ul>
+
+    <div class="mt-3">
+      <%= link_to "Edit Owner",
+          edit_owner_path(@owner),
+          class: "btn btn-sm btn-warning text-white" %>
+
+      <%= button_to "Delete Owner",
+          owner_path(@owner),
+          method: :delete,
+          data: { turbo_confirm: "Are you sure?" },
+          class: "btn btn-sm btn-danger",
+          form: { class: "d-inline" } %>
+    </div>
     
-    <%= link_to "Back to Owners", owners_path, class: "btn btn-secondary mt-3" %>
+    <%= link_to "Back to Owners List", owners_path, class: "btn btn-secondary mt-3" %>
   </div>
 </div>
