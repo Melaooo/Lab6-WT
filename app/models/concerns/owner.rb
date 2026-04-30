@@ -7,6 +7,7 @@ class Owner < ApplicationRecord
   validates :phone, presence: true
 
   before_validation :lowercase_email
+  
   def lowercase_email
     self.email = email.strip.downcase if email.present?
   end
